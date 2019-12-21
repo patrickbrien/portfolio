@@ -89,15 +89,17 @@ section.introduction {
     width: 50%;
     position: fixed;
     margin: 72px 76px;
-    z-index: -1;
+    z-index: 10;
     top: 0;
 }
 
 section.flex-gallery {
     display: flex;
+    position: relative;
+    pointer-events: none;
     flex-direction: column;
     align-items: flex-end;
-    z-index: 1;
+    z-index: 20;
 }
 
 img.flex-gallery__image {
