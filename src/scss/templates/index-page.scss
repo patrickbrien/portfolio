@@ -1,5 +1,27 @@
 .index-page {
-  &__glide {
+  &__carousel {
+    @include sm {
+      height: 60vw;
+    }
+
     height: 40vw;
+  }
+
+  &__links {
+    &--desktop {
+      @include sm {
+        display: none;
+      }
+
+      display: flex;
+    }
+
+    &--touch {
+      @include sm {
+        display: flex;
+      }
+
+      display: none;
+    }
   }
 }

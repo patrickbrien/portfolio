@@ -16,8 +16,11 @@
 ////////////
 
 @mixin f1 {
-  // @include sm {
-  // }
+  @include sm {
+    font-size: 22px;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+  }
 
   font-family: "Gerstner Programm FSL", Arial, Helvetica, sans-serif;
 

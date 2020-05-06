@@ -31,7 +31,6 @@ class IndexPageComponent extends Component {
     }, 5000);
 
     const learningArray = frontmatter.currentlyLearning.split(`,`);
-    console.log(learningArray);
     const learningIndex = getRandomIntByRange(0, learningArray.length - 1);
 
     this.setState({
@@ -72,18 +71,18 @@ class IndexPageComponent extends Component {
 
         <Layout className="index-page w-full h-screen relative">
           <div className="h-full grid">
-            <nav className="h-full grid-end-5 relative flex flex-col justify-between pt-8 pb-12">
+            <nav className="h-full sm:h-auto grid-end-5 sm:grid-end-12 relative flex flex-col justify-between pt-8 pb-12">
               <article>
                 <h1 className="f1">Patrick Brien</h1>
                 <h2 className="f1">Digital Branding</h2>
                 <h2 className="f1">and Website Design</h2>
 
-                <h2 className="mt-16 f1">
+                <h2 className="mt-16 sm:mt-12 f1">
                   Currently learning: {currentlyLearning}
                 </h2>
               </article>
 
-              <ul className="flex">
+              <ul className="index-page__links index-page__links--desktop flex">
                 <li className="relative mr-1 f1 text-black">
                   <a
                     className="hover-underline"
@@ -119,9 +118,9 @@ class IndexPageComponent extends Component {
               </ul>
             </nav>
 
-            <section className="grid-end-7 relative flex items-end pb-12">
+            <section className="grid-end-7 sm:grid-end-12 relative flex items-end pb-12 sm:pb-16">
               <div
-                className="index-page__glide w-full relative overflow-hidden"
+                className="index-page__carousel w-full relative overflow-hidden"
                 // style={{ transform: imageTranslate }}
               >
                 {activeImage && (
@@ -140,6 +139,41 @@ class IndexPageComponent extends Component {
                   />
                 )}
               </div>
+
+              <ul className="index-page__links index-page__links--touch absolute bottom-0 right-0 left-0 pb-4 flex">
+                <li className="relative mr-1 f1 text-black">
+                  <a
+                    className="hover-underline"
+                    href="mailto:hello@patrickbrien.com.au"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Email,
+                  </a>
+                </li>
+
+                <li className="relative mr-1 f1 text-black">
+                  <a
+                    className="hover-underline"
+                    href="https://www.instagram.com/patrickbrien/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Instagram,
+                  </a>
+                </li>
+
+                <li className="relative f1 text-black">
+                  <a
+                    className="hover-underline"
+                    href="https://open.spotify.com/user/pbrien1?si=wykLl5prRmqAc96mUbUXGw"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Spotify
+                  </a>
+                </li>
+              </ul>
             </section>
           </div>
         </Layout>
