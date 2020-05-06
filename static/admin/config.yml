@@ -3,7 +3,7 @@ backend:
   repo: patrickbrien/portfolio
   branch: master
 
-site_url: https://patrickbrien.com.au
+site_url: https://patrickbrien.netlify.app
 
 media_folder: static/uploads
 public_folder: uploads
