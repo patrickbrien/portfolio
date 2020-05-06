@@ -1,0 +1,43 @@
+backend:
+  name: git-gateway
+  repo: patrickbrien/portfolio
+  branch: master
+
+site_url: https://patrickbrien.com.au
+
+media_folder: static/uploads
+public_folder: uploads
+
+collections:
+  - name: pages
+    label: Pages
+    editor:
+      preview: false
+    files:
+      - file: src/pages/index.md
+        label: Home
+        name: home
+        fields:
+          - label: Template Key
+            name: templateKey
+            widget: hidden
+            default: index-page
+
+          - label: Title
+            name: title
+            widget: text
+
+          - label: Currently Learning
+            name: currentlyLearning
+            widget: string
+            hint: Comma-separated list of things that can show up as "Currently learning"
+
+          - label: SEO Description
+            name: description
+            required: false
+            widget: string
+
+          - label: SEO Keywords
+            name: keywords
+            required: false
+            widget: string

@@ -1,0 +1,31 @@
+////////////
+
+@font-face {
+  font-family: "Gerstner Programm FSL";
+  src: url("../assets/fonts/gerstner-programm-fsl-regular.eot");
+  src: url("../assets/fonts/gerstner-programm-fsl-regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../assets/fonts/gerstner-programm-fsl-regular.woff") format("woff"),
+    url("../assets/fonts/gerstner-programm-fsl-regular.svg#svgFontName")
+      format("svg");
+  font-display: block;
+  font-weight: normal;
+  font-style: normal;
+}
+
+////////////
+
+@mixin f1 {
+  // @include sm {
+  // }
+
+  font-family: "Gerstner Programm FSL", Arial, Helvetica, sans-serif;
+
+  font-size: 32px;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+}
+
+.f1 {
+  @include f1;
+}
