@@ -12,6 +12,8 @@ carouselImages:
   - /uploads/08.jpg
   - /uploads/09.jpg
   - /uploads/lam-01.jpg
+currentlyLearning: >-
+  AUSLAN, Classical piano, How to survive a pandemic (hopefully), How to have a work/life balance, The subtle art of not giving a fuck, 3D modelling + rendering
 seoDescription: ""
 seoKeywords: ""
 ---

@@ -29,7 +29,7 @@ collections:
 
           - label: Currently Learning
             name: currentlyLearning
-            widget: string
+            widget: text
             hint: Comma-separated list of things that can show up as "Currently learning"
 
           - label: SEO Description

@@ -7,9 +7,11 @@ import { AppContext } from "~context/AppContext";
 import { CursorContext } from "~context/CursorContext";
 import Layout from "~components/Layout";
 import SEO from "~components/SEO";
+import { getRandomIntByRange } from "~utils/helpers";
 
 class IndexPageComponent extends Component {
   state = {
+    currentlyLearning: ``,
     imageIndex: 0
   };
 
@@ -27,6 +29,14 @@ class IndexPageComponent extends Component {
             : 0
       }));
     }, 5000);
+
+    const learningArray = frontmatter.currentlyLearning.split(`,`);
+    console.log(learningArray);
+    const learningIndex = getRandomIntByRange(0, learningArray.length - 1);
+
+    this.setState({
+      currentlyLearning: learningArray[learningIndex].trim()
+    });
   }
 
   componentWillUnmount() {
@@ -38,7 +48,7 @@ class IndexPageComponent extends Component {
   render() {
     // const { cursorContext, frontmatter, location } = this.props;
     const { frontmatter, location } = this.props;
-    const { imageIndex } = this.state;
+    const { currentlyLearning, imageIndex } = this.state;
 
     const activeImage = frontmatter.carouselImages[imageIndex];
 
@@ -68,7 +78,9 @@ class IndexPageComponent extends Component {
                 <h2 className="f1">Digital Branding</h2>
                 <h2 className="f1">and Website Design</h2>
 
-                <h2 className="mt-16 f1">Currently learning: AUSLAN</h2>
+                <h2 className="mt-16 f1">
+                  Currently learning: {currentlyLearning}
+                </h2>
               </article>
 
               <ul className="flex">
@@ -167,6 +179,7 @@ export const query = graphql`
             }
           }
         }
+        currentlyLearning
         seoDescription
         seoKeywords
       }
