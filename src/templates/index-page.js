@@ -70,7 +70,7 @@ class IndexPageComponent extends Component {
           path={location.pathname}
         />
 
-        <Layout className="index-page w-full h-screen relative">
+        <Layout className="index-page w-full relative">
           <Div100vh className="relative overflow-hidden">
             <div className="h-full grid">
               <nav className="h-full sm:h-auto grid-end-5 sm:grid-end-12 relative flex flex-col justify-between pt-8 pb-12">
