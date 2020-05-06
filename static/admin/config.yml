@@ -30,10 +30,7 @@ collections:
           - label: Carousel Images
             name: carouselImages
             widget: list
-            fields:
-              - label: Image
-                name: image
-                widget: image
+            field: { label: Image, name: image, widget: image }
 
           - label: Currently Learning
             name: currentlyLearning
