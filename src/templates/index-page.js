@@ -52,11 +52,11 @@ class IndexPageComponent extends Component {
 
     const activeImage = frontmatter.carouselImages[imageIndex];
 
-    let nextImage = frontmatter.carouselImages[0];
+    // let nextImage = frontmatter.carouselImages[0];
 
-    if (imageIndex < frontmatter.carouselImages.length) {
-      nextImage = frontmatter.carouselImages[imageIndex + 1];
-    }
+    // if (imageIndex < frontmatter.carouselImages.length) {
+    //   nextImage = frontmatter.carouselImages[imageIndex + 1];
+    // }
 
     // const imageTranslate = `translate3d(${cursorContext.cursorCenterDeltaX *
     //   10}px, ${cursorContext.cursorCenterDeltaY * 10}px, 0)`;
@@ -133,13 +133,13 @@ class IndexPageComponent extends Component {
                     />
                   )}
 
-                  {nextImage && (
+                  {/* {nextImage && (
                     <Img
                       className="animation-fade-in-slow animation-delay-1 w-full absolute transform-center"
                       fluid={activeImage.childImageSharp.fluid}
                       alt="Carousel Image Cached"
                     />
-                  )}
+                  )} */}
                 </div>
 
                 <ul className="index-page__links index-page__links--touch absolute bottom-0 right-0 left-0 pb-4 flex">
