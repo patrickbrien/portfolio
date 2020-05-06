@@ -27,6 +27,14 @@ collections:
             name: title
             widget: text
 
+          - label: Carousel Images
+            name: carouselImages
+            widget: list
+            fields:
+              - label: Image
+                name: image
+                widget: image
+
           - label: Currently Learning
             name: currentlyLearning
             widget: text
