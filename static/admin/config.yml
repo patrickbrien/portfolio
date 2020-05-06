@@ -25,7 +25,7 @@ collections:
 
           - label: Title
             name: title
-            widget: text
+            widget: string
 
           - label: Carousel Images
             name: carouselImages
