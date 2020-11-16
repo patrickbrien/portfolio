@@ -1,0 +1,38 @@
+nav:
+  columnOne:
+    - text: PATRICK BRIEN
+      internalLink: /
+    - serif: true
+      text: Digital Branding and Design
+      marginBottom: 4
+    - text: "Current position:"
+    - text: Digital designer at Love + Money Agency
+      serif: true
+    - text: Availiable for Freelance
+      serif: true
+  columnTwo:
+    - text: "Currently learning:"
+    - serif: true
+      token: CURRENTLY_LEARNING
+  columnThree:
+    - text: Index
+    - text: Fluff
+      internalLink: "/case-study/fluff"
+      serif: true
+    - text: Fluff
+      internalLink: "/case-study/fluff"
+      serif: true
+    - text: Karst
+      internalLink: "/case-study/karst"
+      serif: true
+  columnFour:
+    - text: Links
+    - serif: true
+      text: Email
+      externalLink: mailto:pat@loveandmoney.agency
+    - serif: true
+      text: Instagram
+      externalLink: https://www.instagram.com/pats-insta
+    - serif: true
+      text: Spotify
+      externalLink: https://www.spotify.com/pats-spotify

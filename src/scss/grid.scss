@@ -1,12 +1,12 @@
 $grid_columns: 12;
 $grid_columns_xs: 12;
-$grid_gutter: 12px;
+$grid_gutter: 8px;
 $grid_padding: (
-  xl: 40px,
-  lg: 40px,
-  md: 40px,
-  sm: 16px,
-  xs: 16px,
+  xl: 16px,
+  lg: 16px,
+  md: 16px,
+  sm: 8px,
+  xs: 8px,
 );
 
 .grid {

@@ -10,25 +10,34 @@
       format("svg");
   font-display: block;
   font-weight: normal;
-  font-style: normal;
+  font-style: normal; // TODO proper fonts
 }
 
 ////////////
 
 @mixin f1 {
   @include sm {
-    font-size: 22px;
-    line-height: 22px;
-    letter-spacing: -0.01em;
+    font-size: 18px;
   }
 
-  font-family: "Gerstner Programm FSL", Arial, Helvetica, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 
-  font-size: 32px;
-  line-height: 32px;
-  letter-spacing: -0.01em;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 25px;
+  letter-spacing: -0.02em;
+
+  &--serif {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 24px;
+  }
 }
 
 .f1 {
   @include f1;
 }
+

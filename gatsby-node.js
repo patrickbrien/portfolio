@@ -26,6 +26,32 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = [
+    `type DataYaml implements Node {
+      nav: DataYamlNavType
+    }
+
+    type DataYamlNavType @infer {
+      columnOne: [ColumnItemType]
+      columnTwo: [ColumnItemType]
+      columnThree: [ColumnItemType]
+      columnFour: [ColumnItemType]
+    }
+
+    type ColumnItemType @infer {
+      text: String
+      externalLink: String
+      marginBottom: Int
+      serif: Boolean
+      token: String
+      internalLink: String
+    }`
+  ];
+  createTypes(typeDefs);
+};
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
 

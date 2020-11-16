@@ -6,6 +6,10 @@
   height: 50%;
 }
 
+.h-fit-content {
+  height: fit-content;
+}
+
 .transform-center {
   top: 50%;
   left: 50%;
@@ -31,6 +35,12 @@
 .square {
   width: 100%;
   padding-bottom: 100%;
+}
+
+.border {
+  &-black {
+    border: 1px solid theme("colors.black");
+  }
 }
 
 .border-b,

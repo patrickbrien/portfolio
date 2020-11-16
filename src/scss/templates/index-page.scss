@@ -1,10 +1,5 @@
 .index-page {
   &__carousel {
-    @include sm {
-      height: 60vw;
-    }
-
-    height: 40vw;
   }
 
   &__links {
