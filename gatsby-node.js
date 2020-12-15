@@ -29,7 +29,20 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = [
-    `type DataYaml implements Node {
+    `type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+    }
+
+    type Frontmatter @infer {
+      images: [imageType]
+      carouselImages: [imageType]
+    }
+
+    type imageType @infer {
+      image: File @fileByRelativePath
+    }
+    
+    type DataYaml implements Node {
       nav: DataYamlNavType
     }
 

@@ -1,5 +1,10 @@
 .index-page {
   &__carousel {
+    @include sm {
+      width: 100%;
+    }
+
+    width: 107%;
   }
 
   &__links {

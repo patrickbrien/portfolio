@@ -1,4 +1,6 @@
 nav:
+  currentlyLearning: >-
+    AUSLAN, Classical piano, How to survive a pandemic (hopefully), How to have a work/life balance, The subtle art of not giving a fuck, 3D modelling + rendering
   columnOne:
     - text: PATRICK BRIEN
       internalLink: /
@@ -16,9 +18,7 @@ nav:
       token: CURRENTLY_LEARNING
   columnThree:
     - text: Index
-    - text: Fluff
-      internalLink: "/case-study/fluff"
-      serif: true
+      internalLink: "/"
     - text: Fluff
       internalLink: "/case-study/fluff"
       serif: true

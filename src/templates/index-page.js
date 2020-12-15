@@ -36,7 +36,12 @@ const IndexPage = ({ data, location }) => {
 
   //
 
-  const activeImage = frontmatter.carouselImages[imageIndex];
+  const caseStudyImages = [];
+  data.allMarkdownRemark.edges.forEach(({ node }) => {
+    node.frontmatter.images.forEach(({ image }) => caseStudyImages.push(image));
+  });
+
+  const activeImage = caseStudyImages[imageIndex];
 
   return (
     <>
@@ -55,8 +60,8 @@ const IndexPage = ({ data, location }) => {
           />
 
           <div className="grid">
-            <section className="grid-end-4 grid-start-7 sm:grid-end-12 sm:grid-start-1 relative flex pb-12 sm:pb-6">
-              <div className="index-page__carousel w-full h-fit-content mt-10 sm:mt-4 relative border-black">
+            <section className="index-page__carousel transform-center grid-end-4 grid-start-7 sm:grid-end-12 sm:grid-start-1 relative flex pb-12 sm:pb-6">
+              <div className="w-full h-fit-content mt-10 sm:mt-4 relative border-black">
                 {activeImage && (
                   <Img
                     className="animation-fade-in-slow w-full"
@@ -85,15 +90,40 @@ export const query = graphql`
       frontmatter {
         title
         carouselImages {
-          childImageSharp {
-            fluid(maxWidth: 1440, quality: 75) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
+          image {
+            childImageSharp {
+              fluid(maxWidth: 1440, quality: 75) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+              }
             }
           }
         }
         currentlyLearning
         seoDescription
         seoKeywords
+      }
+    }
+    allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "case-study-page" } } }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            images {
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 1440, quality: 75) {
+                    ...GatsbyImageSharpFluid_withWebp_noBase64
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

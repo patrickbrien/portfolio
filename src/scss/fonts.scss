@@ -1,16 +1,27 @@
 ////////////
 
 @font-face {
-  font-family: "Gerstner Programm FSL";
-  src: url("../assets/fonts/gerstner-programm-fsl-regular.eot");
-  src: url("../assets/fonts/gerstner-programm-fsl-regular.eot?#iefix")
+  font-family: "Signifier Light Italic";
+  src: url("../assets/fonts/signifier-web-light-italic.eot");
+  src: url("../assets/fonts/signifier-web-light-italic.eot?#iefix")
       format("embedded-opentype"),
-    url("../assets/fonts/gerstner-programm-fsl-regular.woff") format("woff"),
-    url("../assets/fonts/gerstner-programm-fsl-regular.svg#svgFontName")
-      format("svg");
+    url("../assets/fonts/signifier-web-light-italic.woff") format("woff"),
+    url("../assets/fonts/signifier-web-light-italic.woff2") format("woff2");
+  font-display: block;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Soehne";
+  src: url("../assets/fonts/soehne-web-buch.eot");
+  src: url("../assets/fonts/soehne-web-buch.eot?#iefix")
+      format("embedded-opentype"),
+    url("../assets/fonts/soehne-web-buch.woff") format("woff"),
+    url("../assets/fonts/soehne-web-buch.woff2") format("woff2");
   font-display: block;
   font-weight: normal;
-  font-style: normal; // TODO proper fonts
+  font-style: normal;
 }
 
 ////////////
@@ -20,7 +31,7 @@
     font-size: 18px;
   }
 
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Soehne", Helvetica, Arial, sans-serif;
 
   font-style: normal;
   font-weight: normal;
@@ -29,7 +40,7 @@
   letter-spacing: -0.02em;
 
   &--serif {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Signifier Light Italic", "Times New Roman", Times, serif;
     font-style: italic;
     font-weight: 300;
     font-size: 19px;
@@ -40,4 +51,3 @@
 .f1 {
   @include f1;
 }
-

@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Nav from "~components/Nav";
+import { getRandomIntByRange } from "~utils/helpers";
 
 const query = graphql`
   query HeaderNav {
@@ -9,6 +10,7 @@ const query = graphql`
       edges {
         node {
           nav {
+            currentlyLearning
             columnOne {
               text
               internalLink
@@ -48,7 +50,7 @@ const query = graphql`
   }
 `;
 
-const Header = ({ className, tokens }) => {
+const Header = ({ className }) => {
   return (
     <StaticQuery
       query={query}
@@ -59,6 +61,23 @@ const Header = ({ className, tokens }) => {
           ({ node }) => node.nav
         );
         const { nav: items } = selectedNode;
+
+        const [currentlyLearning, setCurrentlyLearning] = useState(``);
+        const [tokens, setTokens] = useState({});
+
+        useEffect(() => {
+          const learningArray = items.currentlyLearning.split(`,`);
+          const learningIndex = getRandomIntByRange(
+            0,
+            learningArray.length - 1
+          );
+
+          setCurrentlyLearning(learningArray[learningIndex].trim());
+        }, []);
+
+        useEffect(() => {
+          setTokens({ CURRENTLY_LEARNING: currentlyLearning });
+        }, [currentlyLearning]);
 
         return (
           <header className={className}>
