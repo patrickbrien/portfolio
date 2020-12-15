@@ -11,7 +11,7 @@ const Nav = ({ items, tokens, className }) => {
     externalLink,
     marginBottom
   }) => {
-    const content = token ? tokens[token] : text;
+    const content = tokens && token ? tokens[token] : text;
 
     return (
       <div

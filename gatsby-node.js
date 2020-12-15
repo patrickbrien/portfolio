@@ -36,6 +36,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type Frontmatter @infer {
       images: [imageType]
       carouselImages: [imageType]
+      content: [ColumnItemType]
     }
 
     type imageType @infer {

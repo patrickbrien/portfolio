@@ -6,15 +6,31 @@ import Div100vh from "react-div-100vh";
 import Img from "gatsby-image";
 import Layout from "~components/Layout";
 import Header from "~components/Header";
-import Footer from "~components/Footer";
 import SEO from "~components/SEO";
 import { DocumentContext } from "~context/DocumentContext";
+import Nav from "~components/Nav";
 
 const CaseStudyPage = ({ data, location }) => {
   const { device } = useContext(DocumentContext);
   const { frontmatter } = data.markdownRemark;
 
   //
+
+  const navItems = frontmatter?.content
+    ? /* eslint-disable-next-line */
+      frontmatter.content.map((item, itemIndex) => ({...item, marginBottom: itemIndex % 2 === 0 ? 1 : 6 }))
+    : [];
+
+  navItems.push({
+    text: `Close`,
+    internalLink: `/`
+  });
+
+  navItems.push({
+    text: `x`,
+    serif: true,
+    internalLink: `/`
+  });
 
   return (
     <>
@@ -30,14 +46,20 @@ const CaseStudyPage = ({ data, location }) => {
           <Header className="text-off-black mt-4" />
 
           <div className="grid h-full">
-            <section className="index-page__carousel h-auto overflow-scroll transform-center grid-end-4 grid-start-7 sm:grid-end-12 sm:grid-start-1 relative flex pb-12 sm:pb-6">
-              <div className="w-full h-fit-content mt-10 sm:mt-4 relative border-black">
+            {device !== `mobile` && (
+              <section className="grid-end-4 grid-start-1 mt-6 flex flex-col">
+                {frontmatter.content && <Nav items={navItems} />}
+              </section>
+            )}
+
+            <section className="index-page__carousel h-auto overflow-scroll hide-scrollbar transform-center grid-end-4 grid-start-7 sm:grid-end-12 sm:grid-start-1 relative flex pb-12 sm:pb-6">
+              <div className="w-full h-fit-content mt-8 sm:mt-4 relative">
                 {frontmatter.images.map(({ image }) => {
                   return (
                     <Img
-                      className="animation-fade-in-slow w-full"
+                      className="animation-fade-in-slow w-full mb-6 sm:mb-3 border-black"
                       fluid={image.childImageSharp.fluid}
-                      alt="Carousel Image Active"
+                      alt="Case Study Image"
                     />
                   );
                 })}
@@ -45,7 +67,11 @@ const CaseStudyPage = ({ data, location }) => {
             </section>
           </div>
 
-          {device === `mobile` && <Footer className="w-full mb-4" />}
+          {device === `mobile` && (
+            <section className="grid-end-12 grid-start-1 mt-10 flex flex-col">
+              {frontmatter.content && <Nav items={navItems} />}
+            </section>
+          )}
         </Div100vh>
       </Layout>
     </>
@@ -63,6 +89,14 @@ export const query = graphql`
         title
         seoDescription
         seoKeywords
+        content {
+          text
+          internalLink
+          externalLink
+          marginBottom
+          serif
+          token
+        }
         images {
           image {
             childImageSharp {
