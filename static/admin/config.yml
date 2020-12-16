@@ -3,6 +3,8 @@ backend:
   repo: patrickbrien/portfolio
   branch: master
 
+local_backend: true
+
 site_url: https://patrickbrien.netlify.app
 
 media_folder: static/uploads
@@ -30,12 +32,10 @@ collections:
           - label: Carousel Images
             name: carouselImages
             widget: list
-            field: { label: Image, name: image, widget: image }
-
-          - label: Currently Learning
-            name: currentlyLearning
-            widget: text
-            hint: Comma-separated list of things that can show up as "Currently learning"
+            fields: 
+              - label: image
+                name: image
+                widget: image
 
           - label: SEO Description
             name: description
@@ -46,3 +46,338 @@ collections:
             name: keywords
             required: false
             widget: string
+
+  - name: case-study
+    label: Case studies
+    editor:
+      preview: false
+    folder: src/pages/case-study
+    fields:
+      - label: Template Key
+        name: templateKey
+        widget: hidden
+        default: case-study-page
+
+      - label: Title
+        name: title
+        widget: string
+
+      - label: Images
+        name: images
+        widget: list
+        fields: 
+          - label: image
+            name: image
+            widget: image
+            required: false
+    
+      - label: Content
+        name: content
+        widget: list
+        required: false
+        fields:
+          - name: text
+            widget: string
+            label: Text
+            required: false
+
+          - name: internalLink
+            widget: string
+            label: Internal link
+            required: false
+            hint: eg "/some-page-name", or just "/" for the home page
+
+          - name: externalLink
+            widget: string
+            label: External link
+            required: false
+            hint: eg "www.google.com"
+
+          - name: marginBottom
+            widget: select
+            options: [0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 32, 40]
+            label: Margin bottom
+            required: false
+            hint: If you get picky
+
+          - name: marginTop
+            widget: select
+            options: [0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 32, 40]
+            label: Margin top
+            required: false
+            hint: If you get tricky
+
+          - name: serif
+            widget: boolean
+            label: Serif
+            required: false
+            hint: Select font type
+
+          - name: inline
+            widget: boolean
+            label: Inline
+            required: false
+            hint: Inline = true means adjascent 'text' items sit on one line, as opposed to on top of one another.
+
+          - name: token
+            widget: select
+            options: ["CURRENTLY_LEARNING"]
+            label: Token
+            required: false
+            default: null
+            hint: Inject some precoded thing into the content
+
+      - label: SEO Description
+        name: description
+        required: false
+        widget: string
+
+      - label: SEO Keywords
+        name: keywords
+        required: false
+        widget: string
+
+
+  - label: Global Options
+    name: options
+    editor:
+      preview: false
+    files:
+      - label: Global options
+        name: global-options
+        file: src/data/nav.yml
+        fields:
+          - label: Global options
+            name: nav
+            widget: object
+            fields:
+              - label: Currently Learning
+                name: currentlyLearning
+                widget: text
+                hint: Comma-separated list of things that can show up as "Currently learning"
+
+              - label: Column one
+                name: columnOne
+                widget: list
+                required: false
+                fields:
+                  - name: text
+                    widget: string
+                    label: Text
+                    required: false
+
+                  - name: internalLink
+                    widget: string
+                    label: Internal link
+                    required: false
+                    hint: eg "/some-page-name", or just "/" for the home page
+
+                  - name: externalLink
+                    widget: string
+                    label: External link
+                    required: false
+                    hint: eg "www.google.com"
+
+                  - name: marginBottom
+                    widget: select
+                    options: [0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 32, 40]
+                    label: Margin bottom
+                    required: false
+                    hint: If you get picky
+
+                  - name: marginTop
+                    widget: select
+                    options: [0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 32, 40]
+                    label: Margin top
+                    required: false
+                    hint: If you get tricky
+
+                  - name: serif
+                    widget: boolean
+                    label: Serif
+                    required: false
+                    hint: Select font type
+
+                  - name: inline
+                    widget: boolean
+                    label: Inline
+                    required: false
+                    hint: Inline = true means adjascent 'text' items sit on one line, as opposed to on top of one another.
+
+                  - name: token
+                    widget: select
+                    options: ["CURRENTLY_LEARNING"]
+                    label: Token
+                    required: false
+                    default: null
+                    hint: Inject some precoded thing into the content
+
+              - label: Column two
+                name: columnTwo
+                widget: list
+                required: false
+                fields:
+                  - name: text
+                    widget: string
+                    label: Text
+                    required: false
+
+                  - name: internalLink
+                    widget: string
+                    label: Internal link
+                    required: false
+                    hint: eg "/some-page-name", or just "/" for the home page
+
+                  - name: externalLink
+                    widget: string
+                    label: External link
+                    required: false
+                    hint: eg "www.google.com"
+
+                  - name: marginBottom
+                    widget: select
+                    options: [0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 32, 40]
+                    label: Margin bottom
+                    required: false
+                    hint: If you get picky
+
+                  - name: marginTop
+                    widget: select
+                    options: [0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 32, 40]
+                    label: Margin top
+                    required: false
+                    hint: If you get tricky
+
+                  - name: serif
+                    widget: boolean
+                    label: Serif
+                    required: false
+                    hint: Select font type
+
+                  - name: inline
+                    widget: boolean
+                    label: Inline
+                    required: false
+                    hint: Inline = true means adjascent 'text' items sit on one line, as opposed to on top of one another.
+
+                  - name: token
+                    widget: select
+                    options: ["CURRENTLY_LEARNING"]
+                    label: Token
+                    required: false
+                    default: null
+                    hint: Inject some precoded thing into the content
+
+
+              - label: Column three
+                name: columnThree
+                widget: list
+                required: false
+                fields:
+                  - name: text
+                    widget: string
+                    label: Text
+                    required: false
+
+                  - name: internalLink
+                    widget: string
+                    label: Internal link
+                    required: false
+                    hint: eg "/some-page-name", or just "/" for the home page
+
+                  - name: externalLink
+                    widget: string
+                    label: External link
+                    required: false
+                    hint: eg "www.google.com"
+
+                  - name: marginBottom
+                    widget: select
+                    options: [0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 32, 40]
+                    label: Margin bottom
+                    required: false
+                    hint: If you get picky
+
+                  - name: marginTop
+                    widget: select
+                    options: [0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 32, 40]
+                    label: Margin top
+                    required: false
+                    hint: If you get tricky
+
+                  - name: serif
+                    widget: boolean
+                    label: Serif
+                    required: false
+                    hint: Select font type
+
+                  - name: inline
+                    widget: boolean
+                    label: Inline
+                    required: false
+                    hint: Inline = true means adjascent 'text' items sit on one line, as opposed to on top of one another.
+
+                  - name: token
+                    widget: select
+                    options: ["CURRENTLY_LEARNING"]
+                    label: Token
+                    required: false
+                    default: null
+                    hint: Inject some precoded thing into the content
+
+
+              - label: Column four
+                name: columnFour
+                widget: list
+                required: false
+                fields:
+                  - name: text
+                    widget: string
+                    label: Text
+                    required: false
+
+                  - name: internalLink
+                    widget: string
+                    label: Internal link
+                    required: false
+                    hint: eg "/some-page-name", or just "/" for the home page
+
+                  - name: externalLink
+                    widget: string
+                    label: External link
+                    required: false
+                    hint: eg "www.google.com"
+
+                  - name: marginBottom
+                    widget: select
+                    options: [0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 32, 40]
+                    label: Margin bottom
+                    required: false
+                    hint: If you get picky
+
+                  - name: marginTop
+                    widget: select
+                    options: [0, 1, 2, 3, 4, 6, 8, 10, 12, 16, 20, 32, 40]
+                    label: Margin top
+                    required: false
+                    hint: If you get tricky
+
+                  - name: serif
+                    widget: boolean
+                    label: Serif
+                    required: false
+                    hint: Select font type
+
+                  - name: inline
+                    widget: boolean
+                    label: Inline
+                    required: false
+                    hint: Inline = true means adjascent 'text' items sit on one line, as opposed to on top of one another.
+
+                  - name: token
+                    widget: select
+                    options: ["CURRENTLY_LEARNING"]
+                    label: Token
+                    required: false
+                    default: null
+                    hint: Inject some precoded thing into the content

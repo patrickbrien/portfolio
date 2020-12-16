@@ -16,13 +16,11 @@ const CaseStudyPage = ({ data, location }) => {
 
   //
 
-  const navItems = frontmatter?.content
-    ? /* eslint-disable-next-line */
-      frontmatter.content.map((item, itemIndex) => ({...item, marginBottom: itemIndex % 2 === 0 ? 1 : 6 }))
-    : [];
+  const navItems = JSON.parse(JSON.stringify(frontmatter.content));
 
   navItems.push({
     text: `Close`,
+    marginTop: device === `desktop` ? 6 : 12,
     internalLink: `/`
   });
 
@@ -45,7 +43,12 @@ const CaseStudyPage = ({ data, location }) => {
         <Div100vh className="relative overflow-hidden sm:overflow-scroll">
           <Header className="text-off-black mt-4" />
 
-          <div className="grid h-full">
+          <div
+            className="grid"
+            style={{
+              height: device === `desktop` ? `calc(100vh - 172px)` : `auto`
+            }}
+          >
             {device !== `mobile` && (
               <section className="grid-end-4 grid-start-1 mt-6 flex flex-col">
                 {frontmatter.content && <Nav items={navItems} />}
@@ -65,13 +68,13 @@ const CaseStudyPage = ({ data, location }) => {
                 })}
               </div>
             </section>
-          </div>
 
-          {device === `mobile` && (
-            <section className="grid-end-12 grid-start-1 mt-10 flex flex-col">
-              {frontmatter.content && <Nav items={navItems} />}
-            </section>
-          )}
+            {device === `mobile` && (
+              <section className="grid-end-12 grid-start-1 mt-10 xs:mt-0 mb-12 flex flex-col">
+                {frontmatter.content && <Nav items={navItems} />}
+              </section>
+            )}
+          </div>
         </Div100vh>
       </Layout>
     </>
@@ -94,8 +97,10 @@ export const query = graphql`
           internalLink
           externalLink
           marginBottom
+          marginTop
           serif
           token
+          inline
         }
         images {
           image {

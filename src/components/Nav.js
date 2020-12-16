@@ -9,15 +9,18 @@ const Nav = ({ items, tokens, className }) => {
     token,
     internalLink,
     externalLink,
-    marginBottom
+    marginBottom,
+    inline,
+    marginTop
   }) => {
     const content = tokens && token ? tokens[token] : text;
 
     return (
       <div
         className={`${marginBottom ? `mb-${marginBottom}` : ``} ${
-          serif ? `f1--serif` : `f1`
-        }`}
+          marginTop ? `mt-${marginTop}` : ``
+        } ${serif ? `f1--serif` : `f1`}`}
+        style={{ display: inline ? `inline` : `block` }}
       >
         {internalLink && <Link to={internalLink}>{content}</Link>}
 
@@ -37,7 +40,11 @@ const Nav = ({ items, tokens, className }) => {
       {column.map(item => {
         const key = item.text || item.token;
         return (
-          <li className="w-full" key={key}>
+          <li
+            className="w-full"
+            style={{ display: item.inline ? `inline` : `block` }}
+            key={key}
+          >
             {parseItem(item)}
           </li>
         );

@@ -60,6 +60,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       marginBottom: Int
       serif: Boolean
       token: String
+      inline: Boolean
       internalLink: String
     }`
   ];

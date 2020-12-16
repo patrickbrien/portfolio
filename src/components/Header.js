@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { StaticQuery, graphql } from "gatsby";
+import { AppContext } from "~context/AppContext";
 import Nav from "~components/Nav";
 import { getRandomIntByRange } from "~utils/helpers";
 
@@ -16,32 +17,40 @@ const query = graphql`
               internalLink
               externalLink
               marginBottom
+              marginTop
               serif
               token
+              inline
             }
             columnTwo {
               text
               internalLink
               externalLink
               marginBottom
+              marginTop
               serif
               token
+              inline
             }
             columnThree {
               text
               internalLink
               externalLink
               marginBottom
+              marginTop
               serif
               token
+              inline
             }
             columnFour {
               text
               internalLink
               externalLink
               marginBottom
+              marginTop
               serif
               token
+              inline
             }
           }
         }
@@ -55,6 +64,7 @@ const Header = ({ className }) => {
     <StaticQuery
       query={query}
       render={data => {
+        const { setHeaderHeight } = useContext(AppContext);
         const { allDataYaml } = data;
 
         const { node: selectedNode } = allDataYaml.edges.find(
@@ -80,7 +90,7 @@ const Header = ({ className }) => {
         }, [currentlyLearning]);
 
         return (
-          <header className={className}>
+          <header style={{ minHeight: `172px` }} className={className}>
             <div className="grid">
               {items.columnOne && (
                 <Nav

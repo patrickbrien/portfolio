@@ -6,7 +6,8 @@ export const AppContext = createContext({});
 class AppProvider extends Component {
   state = {
     cartActive: false,
-    menuActive: false
+    menuActive: false,
+    headerHeight: 0
   };
 
   //
@@ -17,6 +18,12 @@ class AppProvider extends Component {
   }
 
   //
+
+  setHeaderHeight = headerHeight => {
+    this.setState({
+      headerHeight
+    });
+  };
 
   setCartActive = cartActive => {
     this.setState({
@@ -38,9 +45,11 @@ class AppProvider extends Component {
         value={{
           cartActive: this.state.cartActive,
           menuActive: this.state.menuActive,
+          headerHeight: this.state.headerHeight,
           //
           setCartActive: this.setCartActive,
-          setMenuActive: this.setMenuActive
+          setMenuActive: this.setMenuActive,
+          setHeaderHeight: this.setHeaderHeight
         }}
       >
         {this.props.children}

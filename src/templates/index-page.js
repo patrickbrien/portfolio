@@ -53,24 +53,27 @@ const IndexPage = ({ data, location }) => {
       />
 
       <Layout className="index-page w-full relative">
-        <Div100vh className="relative overflow-hidden sm:overflow-scroll">
-          <Header
-            className="text-off-black mt-4"
-            tokens={{ CURRENTLY_LEARNING: currentlyLearning }}
-          />
+        <Div100vh className="relative overflow-hidden flex flex-col sm:overflow-scroll">
+          <div>
+            <Header
+              className="text-off-black mt-4"
+              tokens={{ CURRENTLY_LEARNING: currentlyLearning }}
+            />
 
-          <div className="grid">
-            <section className="index-page__carousel transform-center grid-end-4 grid-start-7 sm:grid-end-12 sm:grid-start-1 relative flex pb-12 sm:pb-6">
-              <div className="w-full h-fit-content mt-10 sm:mt-4 relative border-black">
-                {activeImage && (
-                  <Img
-                    className="animation-fade-in-slow w-full"
-                    fluid={activeImage.childImageSharp.fluid}
-                    alt="Carousel Image Active"
-                  />
-                )}
-              </div>
-            </section>
+            <div className="grid">
+              <section className="index-page__carousel transform-center grid-end-4 grid-start-7 sm:grid-end-12 sm:grid-start-1 relative flex pb-12 sm:pb-6">
+                <div className="w-full h-fit-content mt-10 sm:mt-4 relative border-black">
+                  {activeImage && (
+                    <Img
+                      className="animation-fade-in-slow w-full"
+                      fluid={activeImage.childImageSharp.fluid}
+                      alt="Carousel Image Active"
+                      loading="eager"
+                    />
+                  )}
+                </div>
+              </section>
+            </div>
           </div>
 
           {device === `mobile` && <Footer className="w-full mb-4" />}
